@@ -1,13 +1,13 @@
 import pytest
-Class Solution():
-  def Test(self):
+class Solution():
+  def test(self):
     assert self.Add("")==0, "Wrong Output"
     assert self.Add("   ")==0, "Wrong Output"
     assert self.Add("23456")==23456, "Wrong Output"
     assert self.Add("\n100\n  22\n25  ") == 147, "Wrong Output"
     assert self.Add("2\n5  \n3, 57, 62\n21")==150 , "Wrong Output"
     assert self.Add("//;34\n23  \n2 ; 254; 23; 2 ")== 338, "Wrong Output"
-    with pytest.raises(ValueError, match = r'negatives not allowed [-3, -4, -5]"):
+    with pytest.raises(ValueError, match = r'negatives not allowed [-3, -4, -5]'):
       self.Add("-3,\n-4\n823\n  -5")
     print("All Test Cases Passed")
   def Add(self, numbers):
@@ -28,7 +28,7 @@ Class Solution():
           else:
             if int(x)<0:
               res+= str(int(x))
-        raise ValueError("negatives not allowed ", +str(res))
+        raise ValueError("negatives not allowed " + str(res))
       else:
         # case1 : empty string with length >1
         if numbers == len(numbers)*" ":
@@ -71,7 +71,7 @@ Class Solution():
                   sum += int(i)
             else:
               sum += int(num)
-          return sum 
-      
-    
+          return sum
+obj = Solution()
+obj.test()
     
