@@ -4,6 +4,7 @@ Class Solution():
     assert self.Add("   ")==0, "Wrong Output"
     assert self.Add("23456")==23456, "Wrong Output"
     assert self.Add("\n100\n  22\n25  ") == 147, "Wrong Output"
+    assert self.Add("2\n5  \n3, 57, 62\n21")==150 , "Wrong Output"
     print("All Test Cases Passed")
   def Add(self, numbers):
     # case1 : empty string with length >1
@@ -20,4 +21,18 @@ Class Solution():
         if num != len(num)*" ":
           sum += int(num)
       return sum
+    # case 4: comma separated numbers without having delimiters
+    elif len(numbers)>2 and "," in numbers and numbers[:2]!="//":
+      number = numbers.split(",")
+      sum = 0
+      for num in number:
+        if "\n" in num:
+          x = num.split("\n")
+          for i in x:
+            if i != len(i)*" ":
+              sum += int(i)
+        else:
+          sum += int(num)
+      return sum
+    
     
