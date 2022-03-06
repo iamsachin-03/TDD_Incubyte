@@ -5,6 +5,7 @@ Class Solution():
     assert self.Add("23456")==23456, "Wrong Output"
     assert self.Add("\n100\n  22\n25  ") == 147, "Wrong Output"
     assert self.Add("2\n5  \n3, 57, 62\n21")==150 , "Wrong Output"
+    assert self.Add("//;34\n23  \n2 ; 254; 23; 2 ")== 338, "Wrong Output"
     print("All Test Cases Passed")
   def Add(self, numbers):
     # case1 : empty string with length >1
@@ -33,6 +34,22 @@ Class Solution():
               sum += int(i)
         else:
           sum += int(num)
+    # case 5: delimiters present
+    elif len(numbers)>2 and numbers[:2]=="//":
+      delimit = numbers[2]
+      numbers = numbers[3:]
+      number = numbers.split(delimit)
+      sum = 0
+      for num in number:
+        if "\n" in num:
+          x = num.split("\n")
+          for i in x:
+            if i != len(i)*" ":
+              sum += int(i)
+        else:
+          sum += int(num)
+      return sum  
+      
       return sum
     
     
