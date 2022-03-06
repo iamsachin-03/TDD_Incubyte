@@ -34,6 +34,7 @@ Class Solution():
               sum += int(i)
         else:
           sum += int(num)
+      return sum 
     # case 5: delimiters present
     elif len(numbers)>2 and numbers[:2]=="//":
       delimit = numbers[2]
@@ -50,6 +51,6 @@ Class Solution():
           sum += int(num)
       return sum  
       
-      return sum
+      
     
     
